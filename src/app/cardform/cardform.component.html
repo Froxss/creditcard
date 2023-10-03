@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+    <div class="cardImg">
+      <img src="assets/kredi.jpg" alt="" />
+    </div>
+
+    <app-input
+      label="Ad Soyad"
+      [control]="$any(cardForm.get('name'))"
+    ></app-input>
+    <app-input
+      label="Kart Numarasi"
+      [control]="$any(cardForm.get('cardnumber'))"
+    ></app-input>
+
+    <div class="columns">
+      <div class="column">
+        <app-input
+          label="Son Kullanma Tarihi"
+          [control]="$any(cardForm.get('expiration'))"
+        ></app-input>
+      </div>
+      <div class="column">
+        <app-input
+          label="CCV"
+          [control]="$any(cardForm.get('securityCode'))"
+        ></app-input>
+      </div>
+    </div>
+
+    <div class="buttons" style="display: flex; justify-content: flex-end">
+      <button class="button is-warning" (click)="resetForm()" type="button">
+        Temizle
+      </button>
+
+      <button
+        class="button is-primary"
+        [disabled]="cardForm.invalid"
+        type="submit"
+      >
+        Kaydet
+      </button>
+    </div>
+  </form>
+</div>

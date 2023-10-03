@@ -1,0 +1,27 @@
+<div class="field">
+  <label class="label">{{ label }}</label>
+  <div class="control">
+    <input
+      class="input"
+      type="text"
+      [formControl]="control"
+      [ngClass]="{
+        'is-danger': showErrors()
+      }"
+    />
+  </div>
+
+  <ng-container *ngIf="showErrors()">
+    <!-- DİRTY CONTROL YAZIM İŞLEMİ BİTTİĞİNDE VE İŞLEMDEN ÇIKILDIĞINDA TETİKLENİR, TOUCHED YAZIMA BAŞLANDIĞINDA TETİKLENİR VE HATA MESAJLARINI KONTROL ETMEYE YARAR  -->
+
+    <div class="help is-danger" *ngIf="control.errors?.['required']">
+      *Zorunlu alan
+    </div>
+    <div class="help is-danger" *ngIf="control.errors?.['minlength']">
+      Minimum
+      {{control.errors?.['minlength']?.['requiredLength']}}
+      karater içermelidir.
+    </div>
+    <div class="help is-danger" *ngIf="control.errors?.['maxlength']"></div>
+  </ng-container>
+</div>

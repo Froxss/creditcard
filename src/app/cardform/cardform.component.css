@@ -1,0 +1,9 @@
+.cardImg {
+  display: flex;
+  max-height: 200px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+img {
+  height: 200px;
+}
